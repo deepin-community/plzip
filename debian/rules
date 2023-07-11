@@ -1,4 +1,27 @@
 #!/usr/bin/make -f
 
+include /usr/share/dpkg/architecture.mk
+include /usr/share/dpkg/buildtools.mk
+
 %:
-	dh $@
+	dh ${@}
+
+override_dh_auto_configure:
+	dh_auto_configure -- 'CXX=$(CXX)'
+
+override_dh_auto_install:
+	dh_auto_install -- DESTDIR=$(CURDIR)/debian/plzip
+
+execute_after_dh_auto_install:
+	# update-alternatives
+	mv debian/plzip/usr/bin/plzip debian/plzip/usr/bin/lzip.plzip
+	ln -s /usr/bin/lzip.plzip debian/plzip/usr/bin/plzip
+
+	mv debian/plzip/usr/share/info/plzip.info debian/plzip/usr/share/info/lzip.plzip.info
+	ln -s /usr/share/info/lzip.plzip.info.gz debian/plzip/usr/share/info/plzip.info.gz
+
+	mv debian/plzip/usr/share/man/man1/plzip.1 debian/plzip/usr/share/man/man1/lzip.plzip.1
+	ln -s /usr/share/man/man1/lzip.plzip.1.gz debian/plzip/usr/share/man/man1/plzip.1.gz
+
+	# removing unused files
+	rm -f debian/plzip/usr/share/info/dir*
