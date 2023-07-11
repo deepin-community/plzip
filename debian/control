@@ -1,15 +1,38 @@
-Source: template-repository
-Section: unknown
+Source: plzip
+Section: utils
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Daniel Baumann <daniel.baumann@progress-linux.org>
+Build-Depends:
+ debhelper (>= 13.1~),
+ debhelper-compat (= 13),
+ liblz-dev,
+ texinfo,
+Rules-Requires-Root: no
+Standards-Version: 4.6.2
+Homepage: http://www.nongnu.org/lzip/plzip.html
+Vcs-Browser: https://git.progress-linux.org/users/daniel.baumann/debian/packages/plzip
+Vcs-Git: https://git.progress-linux.org/users/daniel.baumann/debian/packages/plzip
 
-Package: template-repository
+Package: plzip
+Section: utils
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Provides:
+ lzip-alternative,
+ lzip-compressor,
+ lzip-decompressor,
+Description: parallel, lossless data compressor based on the LZMA algorithm
+ Lzip is a lossless data compressor based on the LZMA algorithm, with very safe
+ integrity checking and a user interface similar to the one of gzip or bzip2.
+ Lzip decompresses almost as fast as gzip and compresses better than bzip2,
+ which makes it well suited for software distribution and data archiving.
+ .
+ Plzip is a massively parallel (multi-threaded) version of lzip using the lzip
+ file format; the files produced by plzip are fully compatible with lzip.
+ .
+ Plzip is intended for faster compression/decompression of big files on
+ multiprocessor machines, which makes it specially well suited for distribution
+ of big software files and large scale data archiving. On files big enough,
+ plzip can use hundreds of processors.

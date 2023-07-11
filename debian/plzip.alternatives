@@ -1,0 +1,26 @@
+# lzip-alternative
+Name: lzip
+Link: /usr/bin/lzip
+Alternative: /usr/bin/lzip.plzip
+Dependents:
+  /usr/share/info/lzip.info.gz lzip.info.gz /usr/share/info/lzip.plzip.info.gz
+  /usr/share/man/man1/lzip.1.gz lzip.1.gz /usr/share/man/man1/lzip.plzip.1.gz
+Priority: 6000
+
+# lzip-compressor
+Name: lzip-compressor
+Link: /usr/bin/lzip-compressor
+Alternative: /usr/bin/lzip.plzip
+Dependents:
+  /usr/share/info/lzip-compressor.info.gz lzip-compressor.info.gz /usr/share/info/lzip.plzip.info.gz
+  /usr/share/man/man1/lzip-compressor.1.gz lzip-compressor.1.gz /usr/share/man/man1/lzip.plzip.1.gz
+Priority: 6000
+
+# lzip-decompressor
+Name: lzip-decompressor
+Link: /usr/bin/lzip-decompressor
+Alternative: /usr/bin/lzip.plzip
+Dependents:
+  /usr/share/info/lzip-decompressor.info.gz lzip-decompressor.info.gz /usr/share/info/lzip.plzip.info.gz
+  /usr/share/man/man1/lzip-decompressor.1.gz lzip-decompressor.1.gz /usr/share/man/man1/lzip.plzip.1.gz
+Priority: 6000

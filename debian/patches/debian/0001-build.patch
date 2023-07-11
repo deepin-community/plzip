@@ -1,0 +1,19 @@
+Author: Daniel Baumann <daniel.baumann@progress-linux.org>
+Description: Avoid overwriting build-environment.
+
+diff -Naurp plzip.orig/configure plzip/configure
+--- plzip.orig/configure
++++ plzip/configure
+@@ -22,9 +22,9 @@ datarootdir='$(prefix)/share'
+ infodir='$(datarootdir)/info'
+ mandir='$(datarootdir)/man'
+ CXX=g++
+-CPPFLAGS=
+-CXXFLAGS='-Wall -W -O2'
+-LDFLAGS=
++#CPPFLAGS=
++#CXXFLAGS='-Wall -W -O2'
++#LDFLAGS=
+ LIBS='-llz -lpthread'
+ 
+ # checking whether we are using GNU C++.
